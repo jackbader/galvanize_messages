@@ -10,8 +10,7 @@ router.get('/messages', (req, res, next) => {
   knex('messages')
     .select()
     .then((data) => {
-      console.log(data)
-      res.send(data[0])
+      res.send(data)
     })
 })
 
@@ -26,6 +25,7 @@ router.get('/messages/:id', (req, res, next) => {
 })
 
 router.post('/messages', (req, res, next) => {
+  console.log(req.body)
   const {name, message} = req.body
   knex('messages')
     .insert({
@@ -38,8 +38,10 @@ router.post('/messages', (req, res, next) => {
 })
 
 router.patch('/messages/:id', (req, res, next) => {
+  console.log(req.body)
   const {name, message} = req.body
   const id = req.params.id
+  console.log(id)
 
   knex('messages')
     .select()
