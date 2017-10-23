@@ -10,6 +10,9 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/galvanize_messages_test'
   },
-  production: { },
+  production: {
+    "client": "pg",
+    "connection": process.env.DATABASE_URL
+  }
 
 };
